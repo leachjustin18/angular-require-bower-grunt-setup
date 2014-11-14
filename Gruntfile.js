@@ -16,7 +16,8 @@ module.exports = function(grunt) {
     dist: 'dist',
     assets: 'app/assets',
     scss: '<%= project.assets %>/scss',
-    css: '<%= project.assets %>/styles'
+    css: '<%= project.assets %>/styles',
+    openTo: 'http://localhost:9000/app/'
   }
 
   // Define the configuration for all the tasks
@@ -45,14 +46,25 @@ module.exports = function(grunt) {
     },
     // End of ocalhost connection
 
+    //Open to specfic path
+    open: {
+      dev: {
+        path: '<%= project.openTo %>'
+      }
+    },
+    //End of open to specfic path
+
     //Watches files for changes and runs tasks based on the changed files
     watch: {
       gruntfile: {
         files: ['Gruntfile.js']
       },
       sass: {
-          files: ['<%= project.scss %>/**.scss'],
+          files: ['<%= project.scss %>/**/*.scss'],
           tasks: ['compass:dev']
+      },
+      js: {
+        files: ['<%= project.assets %>/scripts/*.js']
       },
       livereload: {
         options: {
@@ -60,8 +72,8 @@ module.exports = function(grunt) {
         },
         files: [
           '<%= project.app %>/*.html', // index.html, 404.html, etc
-          '<%= project.assets %>/scripts', // arrange code by modules
-          '<%= project.scss %>/**.scss',
+          '<%= project.assets %>/scripts/*.js', // arrange code by modules
+          '<%= project.scss %>/**/*.scss',
           '<%= project.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
         ]
       }
@@ -88,6 +100,7 @@ module.exports = function(grunt) {
   //Main grunt task we use
   grunt.registerTask('serve', [
     'connect:server',
+    'open:dev',
     'watch'
   ]);
 

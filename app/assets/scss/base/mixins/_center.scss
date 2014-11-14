@@ -1,0 +1,11 @@
+@mixin vertical-center($position: relative) {
+  position: $position;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin horizontal-center($position: absolute) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -1,7 +1,6 @@
 /*
 Used to convert pixels (px) to root element (rem)
 */
-
 @mixin font-size($sizeValue: 1.6) {
   font-size: $sizeValue + rem;
 }
