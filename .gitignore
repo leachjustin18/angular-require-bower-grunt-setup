@@ -1,3 +1,4 @@
 app/bower-pkgs/*
 node_modules
-.sass-cache
+
+.sass-cache/*
