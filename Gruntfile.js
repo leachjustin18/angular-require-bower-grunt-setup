@@ -71,8 +71,8 @@ module.exports = function(grunt) {
           livereload: '<%= connect.server.livereload %>'
         },
         files: [
-          '<%= project.app %>/*.html', // index.html, 404.html, etc
-          '<%= project.assets %>/scripts/*.js', // arrange code by modules
+          '<%= project.app %>/{,*/}*.html', // index.html, 404.html, etc
+          '<%= project.assets %>/scripts/{,*/}*.js', // arrange code by modules
           '<%= project.scss %>/**/*.scss',
           '<%= project.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
         ]
