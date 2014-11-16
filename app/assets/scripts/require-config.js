@@ -28,7 +28,7 @@ require([
   var $html = angular.element(document.getElementsByTagName('html')[0]);
 
   //Fire off once the DOM has loaded
-  angular.element().ready(function() {
+  angular.element($html).ready(function() {
     //Resume angular
     angular.resumeBootstrap([main.name]);
   });

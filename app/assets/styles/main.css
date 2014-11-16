@@ -45,7 +45,7 @@ html {
   /* 2 */
   -ms-text-size-adjust: 100%;
   /* 3 */
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
   /* 3 */ }
 
 /**
@@ -91,7 +91,7 @@ progress,
 video {
   display: inline-block;
   /* 1 */
-  vertical-align: baseline;
+  vertical-align: baseline
   /* 2 */ }
 
 /**
@@ -226,7 +226,6 @@ figure {
  */
 /* line 218, ../scss/base/_normalize.scss */
 hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0; }
 
@@ -270,7 +269,7 @@ textarea {
   /* 1 */
   font: inherit;
   /* 2 */
-  margin: 0;
+  margin: 0
   /* 3 */ }
 
 /**
@@ -305,7 +304,7 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
-  cursor: pointer;
+  cursor: pointer
   /* 3 */ }
 
 /**
@@ -345,7 +344,7 @@ input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
-  padding: 0;
+  padding: 0
   /* 2 */ }
 
 /**
@@ -367,8 +366,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box; }
 
@@ -399,7 +396,7 @@ fieldset {
 legend {
   border: 0;
   /* 1 */
-  padding: 0;
+  padding: 0
   /* 2 */ }
 
 /**
@@ -547,35 +544,30 @@ th {
 .fa-rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
   transform: rotate(90deg); }
 
 /* line 5, ../scss/base/font-awesome/_rotated-flipped.scss */
 .fa-rotate-180 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
   transform: rotate(180deg); }
 
 /* line 6, ../scss/base/font-awesome/_rotated-flipped.scss */
 .fa-rotate-270 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -webkit-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
   transform: rotate(270deg); }
 
 /* line 8, ../scss/base/font-awesome/_rotated-flipped.scss */
 .fa-flip-horizontal {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
   -webkit-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
   transform: scale(-1, 1); }
 
 /* line 9, ../scss/base/font-awesome/_rotated-flipped.scss */
 .fa-flip-vertical {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: scale(1, -1);
-  -ms-transform: scale(1, -1);
   transform: scale(1, -1); }
 
 /* line 14, ../scss/base/font-awesome/_rotated-flipped.scss */
@@ -584,7 +576,8 @@ th {
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
-  filter: none; }
+  -webkit-filter: none;
+          filter: none; }
 
 /* line 4, ../scss/base/font-awesome/_stacked.scss */
 .fa-stack {

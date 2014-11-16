@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     scss: '<%= project.assets %>/scss',
     css: '<%= project.assets %>/styles',
     openTo: 'http://localhost:9000/app/'
-  }
+  };
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -64,7 +64,11 @@ module.exports = function(grunt) {
         tasks: ['compass:dev']
       },
       js: {
-        files: ['<%= project.assets %>/scripts/*.js']
+        files: ['<%= project.assets %>/scripts/{,*/}*.js'],
+        tasks: ['jshint'],
+        options: {
+          livereload: true
+        }
       },
       livereload: {
         options: {
@@ -97,7 +101,7 @@ module.exports = function(grunt) {
     //Autoprefix.  Adds -moz, -webkit, etc based on options.
     autoprefixer: {
       // prefix the specified file
-      single_file: {
+      singleFile: {
         options: {
           // Target-specific options go here.
           browsers: ['last 2 versions']
@@ -106,14 +110,45 @@ module.exports = function(grunt) {
         src: '<%= project.css %>/main.css',
         dest: '<%= project.css %>/main.css'
       }
-    }
+    },
     //End of Autoprefix.  Adds -moz, -webkit, etc based on options.
+
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc',
+        reporter: require('jshint-stylish')
+      },
+      all: [
+        'Gruntfile.js',
+        '<%= project.assets %>/scripts/{,*/}*.js'
+      ]
+    },
+    //Used to optimize require.js with r.js
+    //http://requirejs.org/docs/optimization.html
+    //All options https://github.com/jrburke/r.js/blob/master/build/example.build.js
+    requirejs: {
+      dist: {
+        options: {
+          dir: '<%= project.assets %>/bScripts/',
+          baseUrl: '<%= project.assets %>/scripts', // Directory to look for the require configuration file
+          mainConfigFile: '<%= project.assets %>/scripts/require-config.js', // This is relative to the grunt file
+          modules: [{
+            name: 'main'
+          }], // create a global bundle
+          preserveLicenseComments: false, // remove all comments
+          removeCombined: true, // remove files which aren't in bundles
+          optimize: 'none', // minify bundles with uglify 2
+          useStrict: true
+        }
+      }
+    }
 
   });
   // End of define the configuration for all the tasks
 
   //Main grunt task we use
   grunt.registerTask('serve', [
+    'autoprefixer',
     'connect:server',
     'open:dev',
     'watch'
@@ -122,6 +157,10 @@ module.exports = function(grunt) {
   grunt.registerTask('prefix', [
     'autoprefixer'
   ]);
+
+  grunt.registerTask('require', [
+    'requirejs'
+  ])
 
   grunt.registerTask('default', ['compass']);
 

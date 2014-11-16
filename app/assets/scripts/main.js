@@ -1,5 +1,5 @@
-define(['angular'], function(angular) {
-  'use strict'
+define(['angular', 'angular-ui-router'], function(angular) {
+  'use strict';
 
   return angular.module('fedPackage', [
     'ui.router'
@@ -19,14 +19,16 @@ define(['angular'], function(angular) {
 
       $stateProvider
         .state('main', {
-          //Abstract state can have child states but can not get activated itself
+          //Abstract state can have child states but can not get activated itsel
           //https://github.com/angular-ui/ui-router/wiki/Nested-States-%26-Nested-Views#abstract-states
           abstract: true,
           url: '/',
           templateUrl: 'views/mainView.html'
+          //Home page/view
         }).state('main.home', {
           url: '',
           templateUrl: 'views/homeView.html'
+          //Test page/view to show the differnt states
         }).state('main.test', {
           url: 'test',
           templateUrl: 'views/testView.html'
