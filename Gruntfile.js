@@ -60,8 +60,8 @@ module.exports = function(grunt) {
         files: ['Gruntfile.js']
       },
       sass: {
-          files: ['<%= project.scss %>/**/*.scss'],
-          tasks: ['compass:dev']
+        files: ['<%= project.scss %>/**/*.scss'],
+        tasks: ['compass:dev']
       },
       js: {
         files: ['<%= project.assets %>/scripts/*.js']
@@ -91,8 +91,23 @@ module.exports = function(grunt) {
           outputStyle: 'nested'
         }
       }
-    }
+    },
     // End of compiles Sass to CSS and generates necessary files if requested
+
+    //Autoprefix.  Adds -moz, -webkit, etc based on options.
+    autoprefixer: {
+      // prefix the specified file
+      single_file: {
+        options: {
+          // Target-specific options go here.
+          browsers: ['last 2 versions']
+        },
+        flatten: true,
+        src: '<%= project.css %>/main.css',
+        dest: '<%= project.css %>/main.css'
+      }
+    }
+    //End of Autoprefix.  Adds -moz, -webkit, etc based on options.
 
   });
   // End of define the configuration for all the tasks
@@ -102,6 +117,10 @@ module.exports = function(grunt) {
     'connect:server',
     'open:dev',
     'watch'
+  ]);
+
+  grunt.registerTask('prefix', [
+    'autoprefixer'
   ]);
 
   grunt.registerTask('default', ['compass']);

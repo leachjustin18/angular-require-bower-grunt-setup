@@ -3,7 +3,5 @@ With border-box the padding and border of that element no longer increase its wi
 Padding: increases the inner width. Margin increases the outer width
 */
 @mixin box-sizing {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }

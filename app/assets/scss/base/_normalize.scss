@@ -14,7 +14,7 @@
 
 html {
   font-family: sans-serif; /* 1 */
-  font-size: 13px; /* 2 */
+  font-size: $base-font-size; /* 2 */
   -ms-text-size-adjust: 100%; /* 3 */
   -webkit-text-size-adjust: 100%; /* 3 */
 }
@@ -26,10 +26,6 @@ html {
 body {
   margin: 0;
 }
-p {
-  @include horizontal-center();
-}
-
 /* HTML5 display definitions
    ========================================================================== */
 

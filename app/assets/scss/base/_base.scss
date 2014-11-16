@@ -1,3 +1,11 @@
+/*SASS Functions http://sass-lang.com/documentation/file.SASS_REFERENCE.html#functions
+*******************************************/
+@import "functions/_functions";
+
+/*SASS Variables http://sass-lang.com/guide#topic-2
+*******************************************/
+@import "variables/_variables";
+
 /*SASS Mixins http://sass-lang.com/guide#topic-6
 *******************************************/
 @import "mixins/_mixins";
@@ -5,3 +13,7 @@
 /*Normalize: Best practice reset http://necolas.github.io/normalize.css/
 *******************************************/
 @import "_normalize";
+
+/*Font awesome: scalable vector icons http://fortawesome.github.io/Font-Awesome/
+*******************************************/
+@import "font-awesome/font-awesome";

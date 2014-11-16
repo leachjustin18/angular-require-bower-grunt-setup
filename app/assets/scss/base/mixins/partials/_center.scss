@@ -1,0 +1,19 @@
+//Vertical center element. Can either be relative to the container it's in or absolute/fixed to the screen
+@mixin vertical-center($position: relative) {
+  position: $position;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+//Absolute horizontal position
+@mixin horizontal-absolute-center() {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//Center a box with a width
+@mixin center-box () {
+  margin-left: auto;
+  margin-right: auto;
+}

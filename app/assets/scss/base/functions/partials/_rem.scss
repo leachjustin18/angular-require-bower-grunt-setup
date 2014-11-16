@@ -1,0 +1,5 @@
+//13 is our base font size.  We to use this function with the other font sizes, we need to declare this function first
+@function rem($size) {
+  $remSize: $size / 13px;
+  @return $remSize * 1rem;
+}
