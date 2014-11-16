@@ -20,6 +20,7 @@
     "grunt-contrib-jshint": "^0.10.0",
     "jshint-stylish": "^1.0.0",
     "grunt-open": "^0.2.3",
-    "grunt-autoprefixer": "^2.0.0"
+    "grunt-autoprefixer": "^2.0.0",
+    "grunt-contrib-htmlmin": "^0.3.0"
   }
 }

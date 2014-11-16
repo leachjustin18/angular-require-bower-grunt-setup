@@ -84,6 +84,28 @@ module.exports = function(grunt) {
     },
     //End of watches files for changes and runs tasks based on the changed files
 
+    // HTML minify
+    htmlmin: {
+      dist: {
+        options: {
+          collapseBooleanAttributes: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: true,
+          removeCommentsFromCDATA: true,
+          removeEmptyAttributes: true,
+          removeOptionalTags: true,
+          removeRedundantAttributes: true,
+          useShortDoctype: true
+        },
+        files: [{
+          expand: true,
+          src: '<%= project.app %>/{,*/}*.html',
+          dest: 'dist'
+        }]
+      }
+    },
+    // End of HTML minify
+
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       dev: {
@@ -129,19 +151,20 @@ module.exports = function(grunt) {
     requirejs: {
       dist: {
         options: {
-          dir: '<%= project.assets %>/bScripts/',
+          dir: '<%= project.assets %>/bScripts/', //Directory to put optimzed files
           baseUrl: '<%= project.assets %>/scripts', // Directory to look for the require configuration file
           mainConfigFile: '<%= project.assets %>/scripts/require-config.js', // This is relative to the grunt file
           modules: [{
-            name: 'main'
+            name: 'global'
           }], // create a global bundle
           preserveLicenseComments: false, // remove all comments
           removeCombined: true, // remove files which aren't in bundles
-          optimize: 'none', // minify bundles with uglify 2
+          optimize: 'uglify', // Minify
           useStrict: true
         }
       }
     }
+    //End of used to optimize require.js with r.js
 
   });
   // End of define the configuration for all the tasks
@@ -158,8 +181,8 @@ module.exports = function(grunt) {
     'autoprefixer'
   ]);
 
-  grunt.registerTask('require', [
-    'requirejs'
+  grunt.registerTask('html', [
+    'htmlmin'
   ])
 
   grunt.registerTask('default', ['compass']);
